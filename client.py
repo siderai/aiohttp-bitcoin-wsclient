@@ -35,6 +35,7 @@ async def _parse_messages(ws):
                 for dict_ in data:
                     value = dict_[f'{FIELD_SELECTED}']
                     results.append(value)
+                    print(value)
                     counter += 1
 
         if msg.type in (aiohttp.WSMsgType.CLOSED,
