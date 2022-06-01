@@ -2,14 +2,13 @@ import asyncio
 from typing import List
 
 import aiohttp
-from aiohttp import ClientWebSocketResponse
 
 
 URL = 'wss://ws.bitmex.com/realtime'
 BITMEX_COMMAND = {"op":"subscribe","args":["instrument:XBTUSD"]}
 FIELD_SELECTED = 'fairPrice'
 
-async def fetch_10() -> list[float]:
+async def fetch_10() -> List[float]:
     async with aiohttp.ClientSession() as session:
         async with session.ws_connect(URL) as ws:
             await _perform_request(ws)
@@ -19,7 +18,7 @@ async def fetch_10() -> list[float]:
 async def _perform_request(ws):
     await ws.send_json(BITMEX_COMMAND)
 
-
+    
 async def _parse_messages(ws):
     results = []
     counter = 0
