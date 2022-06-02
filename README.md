@@ -1,4 +1,4 @@
-# Aiohttp websocket client example
+# Aiohttp client example
 
 Creates websocket connection with Bitmex.com and fetches 10 real time BTC price updates.
 
