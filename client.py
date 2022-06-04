@@ -37,7 +37,7 @@ async def _parse_messages(ws):
                     print(value)
                     counter += 1
 
-        if msg.type in (aiohttp.WSMsgType.CLOSED,
+        elif msg.type in (aiohttp.WSMsgType.CLOSED,
                         aiohttp.WSMsgType.ERROR):
             print('Connection error! Exiting')
             raise SystemExit(0)
